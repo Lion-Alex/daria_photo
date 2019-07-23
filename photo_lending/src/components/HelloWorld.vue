@@ -55,4 +55,7 @@ li {
 a {
   color: #42b983;
 }
+h1 {
+  color: #42b983;
+}
 </style>
