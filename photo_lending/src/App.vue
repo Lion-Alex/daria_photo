@@ -6,7 +6,7 @@
     </div>
     <!-- Меню -->
     <div class="contentfull">
-    <div class="navBox" v-if="this.menuflags">
+    <div class="navBox" v-if="this.menuflags" :class="{'navBoxOpen': menuflags}">
       <ul>
         <li><a href="#?">Home</a></li>
         <li><a href="#?">About</a></li>
@@ -28,8 +28,6 @@
 <script>
 import HelloWorld from './components/HelloWorld.vue'
 import navBox from './components/navBox.vue'
-import barBox from './components/barBox.vue'
-
 export default {
   name: 'app',
   data () {
@@ -44,13 +42,15 @@ export default {
   },
   components: {
     HelloWorld,
-    navBox,
-    barBox
+    navBox
   }
 }
 </script>
 
 <style lang="stylus">
+@font-face
+  font-family 'Roboto-Black'
+  src url('./assets/fonts/Roboto-Black.ttf')
 body
   margin 0px
   width 100vw
@@ -63,15 +63,27 @@ body
   color #2c3e50
   background-image (url(./assets/photo/1.jpg))
   background-size cover
-  height 100%
-  width 100%
+  background-position center
+  height 100vh
+  width 100vw
   position absolute
 .navBox
   position absolute
   z-index 2
-  background-color rgba(240, 240, 240, 0.15)
-  width 100%
-  height 100%
-a
-  float left
+  height 100vh
+  width 100vw
+  background-color rgba(0, 0, 0, .6)
+  a
+    float left
+    text-shadow 2px 2px 0 #000
+    text-decoration none
+    color rgba(255, 255, 255, .6)
+    font 3em Roboto-Black
+    display block
+  li
+    display flex
+  &:hover
+    opacity 1
+    transition all .4s
+    background-color rgba(0, 0, 0, .6)
 </style>

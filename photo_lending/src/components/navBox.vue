@@ -26,26 +26,34 @@ export default {
 </script>
 <style lang="stylus">
 .bar
-  background-color rgba(240, 240, 240, 0.15)
+  background-color rgba(0, 0, 0, .6)
   color red
   height 50px
 .buttonmenu
-    margin-right 20px
-    margin-top 14px
+    border solid 1px
+    border-color rgba(255, 255, 255, .7)
+    padding 6px
+    border-radius 10%
+    margin-left 20px
+    margin-top 10px
     width 30px
-    float right
+    float left
     &:hover
+      border-color #FF775F
+      transition all .4s
       .buttonmenustick
        background-color #FF775F
        color white
+       transition all .4s
      &:active
       .buttonmenustick
        box-shadow 0 0 15px #FFD0C7
        transition all .2s
 .buttonmenustick
-     height 7px
+     height 3px
      width 30px
      border-radius 20px
-     margin-bottom 1px
-     background-color #FF9683
+     margin-bottom 3px
+     margin-top 3px
+     background-color rgba(255, 255, 255, .7)
 </style>
