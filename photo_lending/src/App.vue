@@ -6,14 +6,16 @@
     </div>
     <!-- Меню -->
     <div class="contentfull">
-    <div class="navBox" v-if="this.menuflags" :class="{'navBoxOpen': menuflags}">
-      <ul>
-        <li><a href="#?">Home</a></li>
-        <li><a href="#?">About</a></li>
-        <li><a href="#?">Clients</a></li>
-        <li><a href="#?">Contact Us</a></li>
-      </ul>
-    </div>
+    <transition name="fade">
+      <div class="navBox" v-show="this.menuflags" :class="{'open': menuflags}">
+        <ul>
+          <li><a href="#?">Home</a></li>
+          <li><a href="#?">About</a></li>
+          <li><a href="#?">Clients</a></li>
+          <li><a href="#?">Contact Us</a></li>
+        </ul>
+      </div>
+    </transition>
     <!-- Контент -->
     <div class="contentBox">
       <img alt="Vue logo" src="./assets/logo.png">
@@ -70,7 +72,7 @@ body
 .navBox
   position absolute
   z-index 2
-  height 100vh
+  height calc(100vh - 50px)
   width 100vw
   background-color rgba(0, 0, 0, .6)
   a
@@ -82,8 +84,10 @@ body
     display block
   li
     display flex
-  &:hover
-    opacity 1
-    transition all .4s
-    background-color rgba(0, 0, 0, .6)
+
+.fade-enter-active, .fade-leave-active
+  transition opacity .4s
+
+.fade-enter, .fade-leave-to
+  opacity 0
 </style>
