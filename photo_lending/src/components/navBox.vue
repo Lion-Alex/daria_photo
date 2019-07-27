@@ -27,7 +27,6 @@ export default {
 <style lang="stylus">
 .bar
   background-color rgba(0, 0, 0, .6)
-  color red
   height 50px
 .buttonmenu
     border solid 1px
